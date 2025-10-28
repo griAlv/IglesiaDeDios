@@ -1,0 +1,435 @@
+/* ====================
+   Estilos generales
+   ==================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* Fondo negro para toda la p�gina */
+    color: #fff; /* Color de texto blanco por defecto */
+}
+
+/* Espacio y padding entre secciones */
+section {
+    padding: 60px 0; /* 60px arriba y abajo */
+    margin-bottom: 60px; /* separaci�n extra si quieres m�s espacio */
+    box-sizing: border-box;
+}
+
+/* Para m�viles */
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0;
+        margin-bottom: 40px;
+    }
+}
+
+
+
+/* ====================
+   Pantalla principal (Hero)
+   ==================== */
+.hero {
+    min-height: 100vh;
+    width: 100%;
+    background: url("../Imagenes/Jovenes/2.jpg") center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 5vw;
+    color: #fff;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    text-align: right;
+    max-width: 90%;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 0 0 10px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin: 0 0 20px;
+}
+
+.scroll-hint {
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* ====================
+   Secci�n Escuela Actual
+   ==================== */
+.escuela {
+    position: relative;
+    min-height: 100vh;
+    background: url("../Imagenes/Jovenes/99.png") center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 5vw;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* Capa oscura con transparencia */
+.escuela-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Contenedor en dos columnas */
+.escuela-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Columna izquierda: texto */
+.escuela-content {
+    flex: 1 1 50%;
+    text-align: left;
+    max-width: 600px;
+    z-index: 3; /* M�s alto que la car�tula */
+    position: relative;
+}
+
+.escuela-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 10px;
+}
+
+.escuela-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.escuela-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Botones */
+.escuela-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+    .btn.leer {
+        background-color: #1E4E59;
+        color: #fff;
+    }
+
+        .btn.leer:hover {
+            background-color: #163b44;
+        }
+
+    .btn.mas {
+        background-color: #741d2d;
+        color: #fff;
+    }
+
+        .btn.mas:hover {
+            background-color: #5a1522;
+        }
+
+/* Columna derecha: imagen car�tula */
+.escuela-cover {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Por debajo del contenido */
+    pointer-events: none; /* Permite clics en los botones sobre la car�tula */
+}
+
+    .escuela-cover img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+    }
+
+
+/* ====================
+   Secci�n Nuestros Eventos
+   ==================== */
+.eventos {
+    position: relative;
+    background: none;
+    padding: 30px 5vw;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* L�nea blanca superior derecha */
+.linea-separacion {
+    width: 80%;
+    height: 15px;
+    background: linear-gradient(to right, rgb(255 255 255 / 0.00), rgb(255 255 255 / 100));
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* L�nea blanca superior derecha */
+.linea-separacionFinal {
+    width: 80%;
+    height: 15px;
+    background: linear-gradient(to right, #fff, rgb(255 255 255 / 0.00));
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+}
+
+/* Encabezado */
+.eventos-title {
+    margin-top: 0px; /* Para separarlo de la l�nea */
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+}
+
+/* Grid de fotos centrado y escalable */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: minmax(80px, auto); /* altura m�nima de 80px, crece seg�n contenido */
+    gap: 12px;
+    margin: -110px auto 0 auto; /* centra el grid */
+    max-width: 1200px; /* limita ancho m�ximo */
+    padding: 0 0px;
+}
+
+/* Media queries para responsive */
+@media (max-width: 1024px) {
+    .parent {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(70px, auto);
+    }
+}
+
+@media (max-width: 768px) {
+    .parent {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(90px, auto);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .parent {
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(100px, auto);
+        gap: 10px;
+    }
+}
+
+/* Distribuci�n de las fotos en grid */
+.div1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 5;
+}
+
+.div4 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+    grid-row-start: 2;
+}
+
+.div5 {
+    grid-row: span 5 / span 5;
+    grid-column-start: 6;
+    grid-row-start: 4;
+}
+
+.div6 {
+    grid-column: span 4 / span 4;
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 7;
+}
+
+/* Fotos dentro de grid */
+.evento-foto {
+    background-color: #333; /* temporal, reemplaza con img de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: #111;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+}
+
+    .modal-content img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border-radius: 8px;
+    }
+
+    .modal-content h3 {
+        margin: 10px 0;
+    }
+
+    .modal-content p {
+        margin-bottom: 20px;
+    }
+
+.cerrar {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+    .cerrar:hover {
+        color: #bbb;
+    }
+
+.ver-album {
+    display: inline-block;
+    background-color: #1E4E59;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .ver-album:hover {
+        background-color: #163b44;
+    }
+
+
+
+/* ====================
+   Secci�n Unete a nosotros
+   ==================== */
+.Unete {
+    position: relative;
+    background: none;
+    padding: 0px 5vw;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* Encabezado */
+.Unete-title {
+    margin-top: 0px; /* Para separarlo de la l�nea */
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+}
+
+.TextoUnt-content {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin: 0 0 0px;
+}
+
+section1 {
+
+    display: flex;
+    width: 1200px;
+    height: 530px;
+    margin: 0 auto;
+}
+
+    section1 img {
+        width: 0px;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: .8;
+        transition: .5s ease;
+    }
+
+        section1 img:hover {
+            cursor: crosshair;
+            width: 300px;
+            opacity: 1;
+            filter: contrast(120%);
+        }

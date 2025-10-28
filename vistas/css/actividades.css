@@ -1,0 +1,28 @@
+.activity-card {
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+}
+.activity-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+.activity-card img {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+#calendar {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.fc .fc-toolbar-title {
+    font-weight: bold;
+    color: #0d6efd;
+}
+.fc-daygrid-event {
+    background: #0d6efd;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 4px;
+}

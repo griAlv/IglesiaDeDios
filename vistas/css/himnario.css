@@ -1,0 +1,155 @@
+/* ======================== RESET ======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ======================== BODY ======================== */
+body {
+    background: #f1f1f1; /* Fondo de la p�gina */
+    color: black; /* Texto general */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* ======================== HEADER ======================== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #741d2d;
+    color: #EFE9E1;
+    padding: 30px 25px;
+    min-height: 80px;
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+}
+
+    /* --- T�tulo de la alabanza --- */
+    header h1 {
+        flex: 1;
+        text-align: center;
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+/* --- BOT�N ATR�S --- */
+#atras {
+    background: none;
+    border: none;
+    color: #1E4E59; /* Color inicial */
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+    #atras:hover,
+    #atras:active {
+        color: #122E40; /* Color al pasar o presionar */
+    }
+
+/* --- MEN� DE TRES LINEAS --- */
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+    #menu span {
+        display: block;
+        height: 3px;
+        background: #73675d; /* Color de las barras */
+        border-radius: 2px;
+    }
+
+/* --- PANEL DE REDIRECCI�N --- */
+#panel-menu {
+    display: none; /* Se mostrar� al abrir men� */
+    position: absolute;
+    top: 60px; /* Debajo del header */
+    right: 20px;
+    background: #EFE9E1;
+    color: black;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    min-width: 150px;
+    z-index: 100;
+}
+
+/* ======================== MAIN / LETRA DEL HIMNO ======================== */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+#letra {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: #000000; /* Texto de la letra */
+    text-align: center; /* Centrar toda la letra */
+}
+
+    #letra h2 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        color: #741d2d; /* Color del t�tulo */
+    }
+
+    #letra p {
+        margin: 10px 0;
+        color: #000000; /* Color de los versos */
+    }
+
+/* --- DESTACAR EL CORO --- */
+.coro {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #741d2d; /* Color del coro */
+}
+
+/* ======================== AUDIO ======================== */
+#audio {
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Estilos específicos para páginas del himnario */
+.pagina-himnario {
+    background: #f1f1f1;
+    color: black;
+    min-height: 100vh;
+}
+
+/* Header solo dentro del himnario */
+.pagina-himnario > header {
+    background-color: #741d2d;
+    color: #EFE9E1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 25px;
+    min-height: 80px;
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+}
+
+/* Asegurar que el logo se muestre correctamente */
+.pagina-himnario .logo {
+    height: 60px; /* Ajusta según el tamaño de tu logo */
+    width: auto;
+    display: block;
+}

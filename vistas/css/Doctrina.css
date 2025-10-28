@@ -1,0 +1,245 @@
+﻿/* ====== VARIABLES DE COLOR ====== */
+:root {
+    --primary: #3498db;
+    --primary-dark: #2980b9;
+    --secondary: #e74c3c;
+    --secondary-dark: #c0392b;
+    --accent: #f39c12;
+    --accent-light: #f1c40f;
+    --text: #2c3e50;
+    --text-light: #7f8c8d;
+    --background: #f9f9f9;
+    --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* ====== ESTILOS GENERALES ====== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+/* ====== ENCABEZADO ====== */
+.header-himnario {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-himnario::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,197.3C960,213,1056,203,1152,181.3C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    background-size: cover;
+    background-position: center;
+}
+
+.header-himnario h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+/* ====== CONTENIDO PRINCIPAL ====== */
+.himno-content {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: var(--card-bg);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.himno-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+}
+
+.himno-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-hover);
+}
+
+/* ====== TÍTULOS ====== */
+h3 {
+    color: var(--primary-dark);
+    font-size: 1.6rem;
+    border-left: 5px solid var(--accent);
+    padding: 12px 0 12px 20px;
+    margin-top: 40px;
+    background: linear-gradient(to right, rgba(52, 152, 219, 0.1), transparent);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+h3::before {
+    content: "✦";
+    color: var(--accent);
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+h4 {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    padding-left: 25px;
+    position: relative;
+}
+
+h4::before {
+    content: "•";
+    color: var(--accent);
+    font-size: 1.8rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* ====== PÁRRAFOS ====== */
+p {
+    font-size: 1.1rem;
+    text-align: justify;
+    color: var(--text);
+    margin-bottom: 25px;
+}
+
+/* ====== CITAS BÍBLICAS ====== */
+p::selection, h3::selection, h4::selection {
+    background: var(--accent-light);
+    color: var(--text);
+}
+
+/* ====== BOTÓN VOLVER ====== */
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 40px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    color: var(--text);
+    padding: 14px 28px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 6px 15px rgba(243, 156, 18, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-volver::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.btn-volver:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.6);
+    text-decoration: none;
+}
+
+.btn-volver:hover::before {
+    width: 100%;
+}
+
+.btn-volver::after {
+    content: "←";
+    margin-right: 8px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.btn-volver:hover::after {
+    transform: translateX(-5px);
+}
+
+/* ====== EFECTOS DE DESTACADO ====== */
+.himno-content p:first-of-type {
+    font-size: 1.15rem;
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(243, 156, 18, 0.1) 100%);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    .himno-content {
+        padding: 30px 20px;
+        margin: 20px;
+        border-radius: 15px;
+    }
+    
+    .header-himnario h1 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+    h4 {
+        font-size: 1.1rem;
+    }
+    
+    .btn-volver {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-himnario {
+        padding: 30px 15px;
+    }
+    
+    .header-himnario h1 {
+        font-size: 1.5rem;
+    }
+    
+    .himno-content {
+        padding: 20px 15px;
+        margin: 15px;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+        padding: 10px 0 10px 15px;
+    }
+}
