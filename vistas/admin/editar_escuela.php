@@ -1,9 +1,5 @@
 <?php
-// Comentar temporalmente la validación de admin para debug
-// if (!isset($_SESSION['usuario']) || $_SESSION['rol'] !== 'admin') {
-//     header('Location: /iglesia/vistas/admin/login.php');
-//     exit();
-// }
+
 
 include_once(__DIR__ . "/../../controladores/controlador_Escuelasabatica.php");
 $controlador = new controlador_Escuelasabatica();

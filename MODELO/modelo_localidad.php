@@ -24,20 +24,16 @@ class modelo_localidad {
     }
 
     public function agregarLocalidad($datos) {
-        $sql = "INSERT INTO localidades (nombre, departamento, ciudad, direccion, telefono, pastor, lat, lng, tipo, notas) 
-                VALUES (:nombre, :departamento, :ciudad, :direccion, :telefono, :pastor, :lat, :lng, :tipo, :notas)";
+        $sql = "INSERT INTO localidades (nombre, departamento, ciudad, direccion, lat, lng) 
+                VALUES (:nombre, :departamento, :ciudad, :direccion, :lat, :lng)";
         
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':nombre', $datos['nombre']);
         $stmt->bindParam(':departamento', $datos['departamento']);
         $stmt->bindParam(':ciudad', $datos['ciudad']);
         $stmt->bindParam(':direccion', $datos['direccion']);
-        $stmt->bindParam(':telefono', $datos['telefono']);
-        $stmt->bindParam(':pastor', $datos['pastor']);
         $stmt->bindParam(':lat', $datos['lat']);
         $stmt->bindParam(':lng', $datos['lng']);
-        $stmt->bindParam(':tipo', $datos['tipo']);
-        $stmt->bindParam(':notas', $datos['notas']);
         
         return $stmt->execute();
     }
@@ -48,12 +44,8 @@ class modelo_localidad {
                 departamento = :departamento, 
                 ciudad = :ciudad, 
                 direccion = :direccion, 
-                telefono = :telefono, 
-                pastor = :pastor, 
                 lat = :lat, 
-                lng = :lng, 
-                tipo = :tipo, 
-                notas = :notas 
+                lng = :lng 
                 WHERE id = :id";
         
         $stmt = $this->pdo->prepare($sql);
@@ -62,12 +54,8 @@ class modelo_localidad {
         $stmt->bindParam(':departamento', $datos['departamento']);
         $stmt->bindParam(':ciudad', $datos['ciudad']);
         $stmt->bindParam(':direccion', $datos['direccion']);
-        $stmt->bindParam(':telefono', $datos['telefono']);
-        $stmt->bindParam(':pastor', $datos['pastor']);
         $stmt->bindParam(':lat', $datos['lat']);
         $stmt->bindParam(':lng', $datos['lng']);
-        $stmt->bindParam(':tipo', $datos['tipo']);
-        $stmt->bindParam(':notas', $datos['notas']);
         
         return $stmt->execute();
     }

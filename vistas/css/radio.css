@@ -1,0 +1,253 @@
+body {
+            background: #f8f9fa;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .page-header h1 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Cards de Predicaciones */
+        .predica-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            background: white;
+            height: 100%;
+        }
+        
+        .predica-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .predica-img-container {
+            position: relative;
+            padding-top: 56.25%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .predica-img-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .predica-img-container .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .predica-card:hover .play-overlay {
+            opacity: 1;
+        }
+        
+        .predica-card-body {
+            padding: 1.5rem;
+        }
+        
+        .predica-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .predica-description {
+            font-size: 0.9rem;
+            color: #718096;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .predica-footer {
+            background: #f7fafc;
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .predica-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .predica-meta:last-child {
+            margin-bottom: 0;
+        }
+        
+        .predica-meta i {
+            color: #667eea;
+        }
+        
+        .no-predicas {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #718096;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .no-predicas i {
+            font-size: 4rem;
+            color: #cbd5e0;
+            margin-bottom: 1rem;
+        }
+
+        /* Modal Video Styles Mejorado */
+        .modal-video {
+            background: rgba(0, 0, 0, 0.85);
+        }
+
+        .modal-video .modal-dialog {
+            max-width: 90%;
+            width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .modal-video .modal-content {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        .modal-video .modal-header {
+            border: none;
+            padding: 1rem 0 0.5rem;
+            background: transparent;
+        }
+
+        .modal-video .modal-body {
+            padding: 0;
+        }
+
+        .modal-video .btn-close {
+            filter: invert(1) brightness(2);
+            opacity: 1;
+            background-size: 1.5rem;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .modal-video .btn-close:hover {
+            opacity: 0.75;
+        }
+
+        .modal-video .modal-title {
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Sección de Radio y TV */
+        .media-section {
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-divider {
+            border: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .responsive-iframe {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        .responsive-iframe iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }

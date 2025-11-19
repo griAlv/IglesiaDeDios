@@ -6,34 +6,151 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="/iglesia/vistas/css/Estilos.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iglesia de Dios El Salvador</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/iglesia/vistas/css/Estilos.css">
+    
+    <style>
+        body {
+            font-family: 'Coolvetica', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            padding-top: 5rem;
+        }
 
+        /* Sección Hero - Sobre Nosotros */
+        #sobre-nosotros {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
 
+        .hero-bg-wrapper {
+            position: absolute;
+            top: -4rem;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .hero-bg-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75);
+        }
+
+        .hero-title {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text {
+            color: white;
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .mission-vision h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .mission-vision p {
+            color: #e5e7eb;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-historia {
+            display: inline-block;
+            background-color: #f9fafb;
+            color: black;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .btn-historia:hover {
+            background-color: #4b5563;
+            color: white;
+        }
+
+        /* Carrusel Ministerios */
+        .ministerios-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .ministerios-section h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        #myCarousel .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-text {
+                font-size: 1rem;
+            }
+            .mission-vision h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-800 pt-20">
+<body>
 
-
-
-    <section id="sobre-nosotros" class="relative">
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section id="sobre-nosotros">
         <!-- Imagen de fondo -->
-        <div class="absolute inset-0 -top-16">
-            <img src="vistas/Imagenes/ImagenPrincipal.jpg"
-                 class="w-full h-screen object-cover brightness-75">
+        <div class="hero-bg-wrapper">
+            <img src="vistas/Imagenes/ImagenPrincipal.jpg" alt="Iglesia de Dios">
         </div>
 
         <!-- Contenido del texto -->
-        <div class="relative container mx-auto h-screen flex flex-col justify-center px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="row g-5 align-items-center">
+                
                 <!-- Columna izquierda -->
-                <div>
-                    <h1 class="text-white text-5xl md:text-6xl font-bold mb-6 max-w-2xl">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">
                         Iglesia de Dios en El Salvador
                     </h1>
-                    <p class="text-white text-lg md:text-xl max-w-2xl">
+                    <p class="hero-text">
                         Somos la Iglesia de Dios, fundada por nuestro Señor Jesucristo en el año 26 de la Era Cristiana. 
                         Comisionando primeramente a 12 apóstoles, a quienes se les encomienda la misión de predicar el evangelio 
                         a toda criatura, comenzando desde Jerusalén, Judea, Samaria y hasta lo último de la tierra. Como organización 
@@ -43,20 +160,21 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
                 </div>
 
                 <!-- Columna derecha -->
-                <div class=" p-6 rounded-2xl ">
-                    <h2 class="text-white text-3xl font-semibold mb-4">Misión</h2>
-                    <p class="text-gray-200 mb-6">
-                        Enseñar la doctrina que practicaron los apóstoles de Jesucristo en Jerusalem, observando orden y decencia, todo basado en las Sagradas Escrituras, con el fin de librar al hombre de pecado para que, con fe en Cristo Jesús, pueda ser útil a la humanidad y finalmente obtener la vida eterna.
-                    </p>
+                <div class="col-lg-6 mission-vision">
+                    <div class="p-4 rounded-3">
+                        <h2>Misión</h2>
+                        <p>
+                            Enseñar la doctrina que practicaron los apóstoles de Jesucristo en Jerusalem, observando orden y decencia, todo basado en las Sagradas Escrituras, con el fin de librar al hombre de pecado para que, con fe en Cristo Jesús, pueda ser útil a la humanidad y finalmente obtener la vida eterna.
+                        </p>
 
-                    <h2 class="text-white text-3xl font-semibold mb-4">Visión</h2>
-                    <p class="text-gray-200 mb-6">
-                        Ser la Iglesia pura y sin mancha que saldrá al encuentro del Señor Jesucristo en su Segunda Venida, con el fin de vivir mil años con él, y después una eternidad con el Padre Celestial.
-                    </p>
-                    <a href="vistas/visitas/historia.php"
-                       class="inline-block bg-gray-50 hover:bg-gray-600 text-black font-semibold px-6 py-3 rounded-lg shadow-lg transition">
-                        Historia de la iglesia
-                    </a>
+                        <h2>Visión</h2>
+                        <p>
+                            Ser la Iglesia pura y sin mancha que saldrá al encuentro del Señor Jesucristo en su Segunda Venida, con el fin de vivir mil años con él, y después una eternidad con el Padre Celestial.
+                        </p>
+                        <a href="vistas/visitas/historia.php" class="btn-historia">
+                            Historia de la iglesia
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,52 +184,48 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
             Sección Nuestros Ministerios
     ===========================================================================-->
     
-<div class="container">
-  <h1>Más de nosotros!</h1>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+    <div class="ministerios-section">
+        <h1>Más de nosotros!</h1>  
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+            </div>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="vistas/Imagenes/es1.png" alt="Los Angeles" style="width:100%;">
-      </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="vistas/Imagenes/es1.png" class="d-block w-100" alt="Ministerio 1">
+                </div>
 
-      <div class="item">
-        <img src="vistas/Imagenes/es2.png" alt="Chicago" style="width:100%;">
-      </div>
-    
-      <div class="item">
-        <img src="vistas/Imagenes/es3.png" alt="New york" style="width:100%;">
-      </div>
+                <div class="carousel-item">
+                    <img src="vistas/Imagenes/es2.png" class="d-block w-100" alt="Ministerio 2">
+                </div>
+            
+                <div class="carousel-item">
+                    <img src="vistas/Imagenes/es3.png" class="d-block w-100" alt="Ministerio 3">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-   
-
-   
 
     <!-- ========================================================================
             Sección Noticias
     ==========================================================================-->
 
     <section id="noticias" class="noticias">
-
         <div class="noticias-header">
             <h2>Noticias</h2>
             <a href="vistas/visitas/noticias.php" class="btn-articulos">Más noticias</a>
@@ -164,7 +278,6 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
         <div class="Escuelas-grid">
             <div class="Escuela cursor-pointer" style="background-image: url('vistas/Imagenes/escuela1.png');"
                  onclick="window.open('vistas/EscuelasPDF/escuelageneral032025.pdf', '_blank')">
-                <!-- Para redireccionar con la escuela -->
                 <div class="overlay">
                     <h3>Escuela General</h3>
                 </div>
@@ -172,7 +285,6 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
 
             <div class="Escuela cursor-pointer" style="background-image: url('vistas/Imagenes/escuela3.png');"
                  onclick="window.open('vistas/EscuelasPDF/escuelafemenil032025.pdf', '_blank')">
-                <!-- Para redireccionar con la escuela -->
                 <div class="overlay">
                     <h3>Escuela Femenil</h3>
                 </div>
@@ -180,7 +292,6 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
 
             <div class="Escuela cursor-pointer" style="background-image: url('vistas/Imagenes/escuela2.png');"
                  onclick="window.open('vistas/EscuelasPDF/escuelajuvenil032025.pdf', '_blank')">
-                <!-- Para redireccionar con la escuela -->
                 <div class="overlay">
                     <h3>Escuela Juvenil</h3>
                 </div>
@@ -188,19 +299,18 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
 
             <div class="Escuela cursor-pointer" style="background-image: url('vistas/Imagenes/infantil.png');"
                  onclick="window.open('vistas/EscuelasPDF/escuelainfantil012025.pdf', '_blank')">
-                <!-- Para redireccionar con la escuela -->
                 <div class="overlay">
                     <h3>Escuela infantil</h3>
                 </div>
             </div>
         </div>
-
     </section>
 
     <!-- ========================================================================
             Sección Más de nosotros!
     ==========================================================================-->
 
+    
     <div class="mas-header">
         <h2>Más de nosotros!</h2>
     </div>
@@ -261,32 +371,11 @@ $eventosRecientes = $controlador->listarEventosRecientes(3);
         </aside>
     </div>
 
-   
 
-    <!-- ========================================================================
-            Footer
-    ==========================================================================-->
-
-    <footer class="bg-gray-900 text-gray-400 py-6 text-center">
-        <div class="container mx-auto px-4">
-            <p>&copy; <?php echo date('Y'); ?> Iglesia de Dios en El Salvador. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script src="vistas/js/script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-<script>
-        const header = document.getElementById("header");
-
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                header.classList.add("bg-black");
-                header.classList.remove("bg-transparent");
-            } else {
-                header.classList.add("bg-transparent");
-                header.classList.remove("bg-black");
-            }
-        });
-    </script>
+    <!-- Script personalizado -->
+    <script src="vistas/js/script.js"></script>
 </body>
 </html>

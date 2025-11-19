@@ -20,7 +20,7 @@ class controlador_predicas {
     }
     public function nuevaPredica($titulo, $descripcion, $url_youtube, $miniatura, $predicador, $creadopor)
     {
-        $this->modelo_predicas->nuevaPredica($titulo, $descripcion, $url_youtube, $miniatura, $predicador, $creadopor);
+        return $this->modelo_predicas->nuevaPredica($titulo, $descripcion, $url_youtube, $miniatura, $predicador, $creadopor);
     }
     public function eliminarPredica($id)
     {

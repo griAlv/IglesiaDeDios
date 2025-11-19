@@ -83,17 +83,7 @@
                                     
                                     <div class="mb-3">
                                         <label for="tipo" class="form-label required">Tipo de Evento</label>
-                                        <select class="form-select" id="tipo" name="tipo" required>
-                                            <option value="" disabled>Seleccione un tipo</option>
-                                            <option value="Misa" <?= $evento['tipo'] == 'Misa' ? 'selected' : '' ?>>Misa</option>
-                                            <option value="Bautizo" <?= $evento['tipo'] == 'Bautizo' ? 'selected' : '' ?>>Bautizo</option>
-                                            <option value="Comunión" <?= $evento['tipo'] == 'Comunión' ? 'selected' : '' ?>>Comunión</option>
-                                            <option value="Confirmación" <?= $evento['tipo'] == 'Confirmación' ? 'selected' : '' ?>>Confirmación</option>
-                                            <option value="Matrimonio" <?= $evento['tipo'] == 'Matrimonio' ? 'selected' : '' ?>>Matrimonio</option>
-                                            <option value="Concierto" <?= $evento['tipo'] == 'Concierto' ? 'selected' : '' ?>>Concierto</option>
-                                            <option value="Conferencia" <?= $evento['tipo'] == 'Conferencia' ? 'selected' : '' ?>>Conferencia</option>
-                                            <option value="Otro" <?= $evento['tipo'] == 'Otro' ? 'selected' : '' ?>>Otro</option>
-                                        </select>
+                                        <input type="text" class="form-control" id="tipo" name="tipo" value="<?= htmlspecialchars($evento['tipo']) ?>" required>
                                         <div class="invalid-feedback">
                                             Por favor seleccione un tipo de evento.
                                         </div>

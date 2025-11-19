@@ -52,12 +52,8 @@ class controlador_localidad {
                 'departamento' => $_POST['departamento'] ?? '',
                 'ciudad' => $_POST['ciudad'] ?? '',
                 'direccion' => $_POST['direccion'] ?? '',
-                'telefono' => $_POST['telefono'] ?? '',
-                'pastor' => $_POST['pastor'] ?? '',
                 'lat' => $_POST['lat'] ?? 0,
-                'lng' => $_POST['lng'] ?? 0,
-                'tipo' => $_POST['tipo'] ?? 'sede',
-                'notas' => $_POST['notas'] ?? ''
+                'lng' => $_POST['lng'] ?? 0
             ];
 
             $resultado = $this->modelo->agregarLocalidad($datos);
@@ -88,12 +84,8 @@ class controlador_localidad {
                 'departamento' => $_POST['departamento'] ?? '',
                 'ciudad' => $_POST['ciudad'] ?? '',
                 'direccion' => $_POST['direccion'] ?? '',
-                'telefono' => $_POST['telefono'] ?? '',
-                'pastor' => $_POST['pastor'] ?? '',
                 'lat' => $_POST['lat'] ?? 0,
-                'lng' => $_POST['lng'] ?? 0,
-                'tipo' => $_POST['tipo'] ?? 'sede',
-                'notas' => $_POST['notas'] ?? ''
+                'lng' => $_POST['lng'] ?? 0
             ];
 
             $resultado = $this->modelo->actualizarLocalidad($id, $datos);

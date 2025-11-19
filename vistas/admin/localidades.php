@@ -390,16 +390,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Teléfono</label>
-                        <input type="tel" id="telefono" placeholder="Ej: 2222-2222">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Pastor/Encargado</label>
-                        <input type="text" id="pastor" placeholder="Nombre del pastor">
-                    </div>
-
-                    <div class="form-group">
                         <label>Coordenadas (Latitud) *</label>
                         <input type="number" id="lat" required step="0.000001" value="13.6929">
                         <small>Haz clic en el mapa para obtener coordenadas</small>
@@ -408,13 +398,6 @@
                     <div class="form-group">
                         <label>Coordenadas (Longitud) *</label>
                         <input type="number" id="lng" required step="0.000001" value="-89.2182">
-                    </div>
-
-                    <input type="hidden" id="tipo" value="sede">
-
-                    <div class="form-group">
-                        <label>Notas Adicionales</label>
-                        <textarea id="notas" rows="3" placeholder="Información adicional"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">💾 Guardar Iglesia</button>
@@ -562,19 +545,12 @@
             markers = [];
 
             iglesias.forEach(function(iglesia) {
-                let icono = iconoSede;
-                if (iglesia.tipo === 'filial') icono = iconoFilial;
-                if (iglesia.tipo === 'mision') icono = iconoMision;
+                const icono = iconoSede;
 
-                const tipoTexto = 'Sede Principal';
-                
                 const popupHTML = `
                     <div class="popup-title">${iglesia.nombre}</div>
                     <div class="popup-info"><strong>📍</strong> ${iglesia.ciudad}, ${iglesia.departamento}</div>
                     ${iglesia.direccion ? `<div class="popup-info"><strong>🏠</strong> ${iglesia.direccion}</div>` : ''}
-                    ${iglesia.telefono ? `<div class="popup-info"><strong>📞</strong> ${iglesia.telefono}</div>` : ''}
-                    ${iglesia.pastor ? `<div class="popup-info"><strong>👤</strong> ${iglesia.pastor}</div>` : ''}
-                    <div class="popup-info"><strong>🏛️</strong> ${tipoTexto}</div>
                 `;
 
                 const marker = L.marker([iglesia.lat, iglesia.lng], { icon: icono })
@@ -593,12 +569,8 @@
             formData.append('departamento', document.getElementById('departamento').value);
             formData.append('ciudad', document.getElementById('ciudad').value);
             formData.append('direccion', document.getElementById('direccion').value);
-            formData.append('telefono', document.getElementById('telefono').value);
-            formData.append('pastor', document.getElementById('pastor').value);
             formData.append('lat', document.getElementById('lat').value);
             formData.append('lng', document.getElementById('lng').value);
-            formData.append('tipo', document.getElementById('tipo').value);
-            formData.append('notas', document.getElementById('notas').value);
 
             fetch('/iglesia/api/localidades.php?action=agregar', {
                 method: 'POST',
@@ -638,12 +610,8 @@
             document.getElementById('departamento').value = iglesia.departamento;
             document.getElementById('ciudad').value = iglesia.ciudad;
             document.getElementById('direccion').value = iglesia.direccion;
-            document.getElementById('telefono').value = iglesia.telefono;
-            document.getElementById('pastor').value = iglesia.pastor;
             document.getElementById('lat').value = iglesia.lat;
             document.getElementById('lng').value = iglesia.lng;
-            document.getElementById('tipo').value = iglesia.tipo;
-            document.getElementById('notas').value = iglesia.notas;
 
             eliminarIglesiaSinConfirmar(id);
             showTab('agregar');
@@ -706,16 +674,12 @@
                 item.className = 'iglesia-item';
                 item.onclick = () => volarAIglesia(iglesia.lat, iglesia.lng);
                 
-                const tipoTexto = '🔴 Sede Principal';
-                
                 let html = `<h3>${iglesia.nombre}</h3>
                     <p><strong>📍 Ubicación:</strong> ${iglesia.ciudad}, ${iglesia.departamento}</p>`;
                 
                 if (iglesia.direccion) html += `<p><strong>🏠 Dirección:</strong> ${iglesia.direccion}</p>`;
-                if (iglesia.telefono) html += `<p><strong>📞 Teléfono:</strong> ${iglesia.telefono}</p>`;
-                if (iglesia.pastor) html += `<p><strong>👤 Pastor:</strong> ${iglesia.pastor}</p>`;
                 
-                html += `<p><strong>🏛️ Tipo:</strong> ${tipoTexto}</p>
+                html += `
                     <div class="iglesia-actions">
                         <button class="btn btn-warning" onclick="event.stopPropagation(); editarIglesia(${iglesia.id})">✏️ Editar</button>
                         <button class="btn btn-danger" onclick="event.stopPropagation(); eliminarIglesia(${iglesia.id})">🗑️ Eliminar</button>

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Iglesias - El Salvador</title>
+    <!-- Bootstrap 5 y Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Leaflet CSS y JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <style>
@@ -443,17 +448,12 @@
             const iglesiasVisibles = iglesias;
 
             iglesiasVisibles.forEach(function(iglesia) {
-                let icono = iconoSede;
-                if (iglesia.tipo === 'filial') icono = iconoFilial;
-                if (iglesia.tipo === 'mision') icono = iconoMision;
+                const icono = iconoSede;
 
-                const tipoTexto = 'Sede Principal';
-                
                 const popupHTML = `
                     <div class="popup-title">${iglesia.nombre}</div>
                     <div class="popup-info"><strong>📍</strong> ${iglesia.ciudad}, ${iglesia.departamento}</div>
                     ${iglesia.direccion ? `<div class="popup-info"><strong>🏠</strong> ${iglesia.direccion}</div>` : ''}
-                    <div class="popup-info"><strong>🏛️</strong> ${tipoTexto}</div>
                 `;
 
                 const marker = L.marker([iglesia.lat, iglesia.lng], { icon: icono })
@@ -483,10 +483,8 @@
 
             iglesiasVisibles.forEach(function(iglesia) {
                 const card = document.createElement('div');
-                card.className = `iglesia-card ${iglesia.tipo}`;
+                card.className = 'iglesia-card';
                 card.onclick = () => volarAIglesia(iglesia.lat, iglesia.lng);
-                
-                const tipoTexto = 'Sede Principal';
                 
                 let html = `
                     <h3>${iglesia.nombre}</h3>
@@ -494,8 +492,6 @@
                 `;
                 
                 if (iglesia.direccion) html += `<p>🏠 ${iglesia.direccion}</p>`;
-                
-                html += `<span class="tipo-badge ${iglesia.tipo}">${tipoTexto}</span>`;
                 
                 card.innerHTML = html;
                 lista.appendChild(card);

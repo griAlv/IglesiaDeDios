@@ -195,26 +195,22 @@ CREATE TABLE IF NOT EXISTS localidades (
     departamento VARCHAR(100) NOT NULL,
     ciudad VARCHAR(100) NOT NULL,
     direccion TEXT,
-    telefono VARCHAR(20),
-    pastor VARCHAR(255),
     lat DECIMAL(10, 6) NOT NULL,
     lng DECIMAL(10, 6) NOT NULL,
-    tipo ENUM('sede') DEFAULT 'sede',
-    notas TEXT,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     fecha_actualizacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Insertar datos de ejemplo
-INSERT INTO localidades (nombre, departamento, ciudad, direccion, telefono, pastor, lat, lng, tipo, notas) VALUES
-('Iglesia Santa Ana', 'Santa Ana', 'Santa Ana', 'Centro Santa Ana', '2440-0000', 'Pastor José', 13.9942, -89.5597, 'sede', '');
+INSERT INTO localidades (nombre, departamento, ciudad, direccion, lat, lng) VALUES
+('Iglesia Santa Ana', 'Santa Ana', 'Santa Ana', 'Centro Santa Ana', 13.9942, -89.5597);
 
 
 CREATE TABLE predicas (
   idpredica INT AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(255) NOT NULL,
   descripcion TEXT,
-  url_youtube VARCHAR(255) NOT NULL,
+  url_youtube TEXT NOT NULL,
   miniatura VARCHAR(255),
   predicador VARCHAR(150),
   creadopor INT,
